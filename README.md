@@ -144,7 +144,7 @@ python generate_visualizations.py
 python time_series_decomposition.py
 
 # 보너스 2: Streamlit 인터랙티브 웹 대시보드 실행
-streamlit run app.py
+python -m streamlit run app.py
 ```
 
 ---
@@ -152,7 +152,7 @@ streamlit run app.py
 ## 6. 보너스 과제 구현 상세
 
 ### 6.1 [보너스 1] Streamlit 인터랙티브 웹 대시보드 (`app.py`)
-- **실행 명령**: `streamlit run app.py` (실행 시 기본 웹 브라우저 자동 오픈)
+- **실행 명령**: `python -m streamlit run app.py` (또는 `streamlit run app.py`)
 - **주요 기능**:
   - **다차원 인터랙티브 필터**: 연도(2024 vs 2025 vs 전체), 상세 날짜 슬라이더, 요일 멀티선택, 1위 영화 텍스트 검색(`파묘`, `범죄도시4` 등).
   - **실시간 KPI 카드**: 총 관객수, 일평균 관객수, 주말 쏠림 비율, 기간 내 최고 피크작 실시간 재계산.
