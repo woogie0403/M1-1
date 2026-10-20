@@ -4,7 +4,7 @@
 > 각 STEP이 끝날 때마다 이 파일을 업데이트하고 git 커밋합니다.
 
 ## ▶ 지금 할 일
-**STEP 4 - 고품질 시각화 3종 생성 및 images/ 폴더 저장 (1. 전체 추세 및 이동평균선 / 2. 요일별 및 월별 계절성 / 3. 급등 이상치 Top 5 및 원인 영화 어노테이션)**
+**STEP 5 - 관찰(Fact) - 원인(Why) - 행동(Action) 3단 프레임워크 기반 핵심 인사이트 3개 도출 및 검증**
 
 ---
 
@@ -17,6 +17,7 @@
 | 원본 파일 | `data/kobis_daily_top10_2024_2025.csv` (총 7,310행) |
 | 정제 파일 | `data/daily_boxoffice_2024_2025.csv` (총 731행) |
 | 분석 파일 | `data/daily_boxoffice_features.csv` (총 731행, 이동평균·변화율 등 19개 지표 완성) |
+| 시각화 파일 | `images/01_audience_trend_ma.png`, `images/02_dow_and_monthly_pattern.png`, `images/03_outlier_peaks_annotated.png` (300 DPI 고해상도 완료) |
 | API 키 | `.env` 파일에 보관 (GitHub 업로드 제외 완벽 격리) |
 | 데이터 한계 | API가 일별 TOP 10만 제공 → TOP 10 합계는 극장 전체 관객수보다 약간 적음 (리포트에 명시) |
 
@@ -56,14 +57,14 @@
 - [x] 기법 2: 전일 대비(`pct_change(1)`) 및 전주 동일 요일 대비(`pct_change(7)`) 변화율 계산
 - [x] 기법 3: 요일별(Day-of-Week) 및 월별(Month) 그룹 통계 산출
 - [x] 분석 결과 통합 시계열 데이터셋(`data/daily_boxoffice_features.csv`) 저장
-- [x] STEP 3 완료 git 커밋
+- [x] STEP 3 완료 git 커밋 (`d3bb6ef`)
 
 ### STEP 4. 시각화 (2개 이상 필수, 권장 3개)
-- [ ] 시각화 1: `images/01_audience_trend_ma.png` (2024~2025 일별 추세선 + 7일/30일 이동평균선)
-- [ ] 시각화 2: `images/02_dow_and_monthly_pattern.png` (요일별 관객 패턴 & 월별 성수기 계절성 서브플롯)
-- [ ] 시각화 3: `images/03_outlier_peaks_annotated.png` (일별 관객수 급등 Top 5 피크 & 원인 영화 텍스트 말풍선)
-- [ ] 한글 폰트 깨짐 방지 (`Malgun Gothic` 설정) 및 고해상도(300 DPI) 검증
-- [ ] STEP 4 완료 git 커밋
+- [x] 시각화 1: `images/01_audience_trend_ma.png` (2024~2025 일별 추세선 + 7일/30일 이동평균선)
+- [x] 시각화 2: `images/02_dow_and_monthly_pattern.png` (요일별 관객 패턴 & 월별 성수기 계절성 서브플롯)
+- [x] 시각화 3: `images/03_outlier_peaks_annotated.png` (일별 관객수 급등 Top 5 피크 & 원인 영화 어노테이션)
+- [x] 한글 폰트 깨짐 방지 (`Malgun Gothic` 설정) 및 고해상도(300 DPI) 검증
+- [x] STEP 4 완료 git 커밋
 
 ### STEP 5. 인사이트 도출 (3개 이상)
 - [ ] 인사이트 1: 2024 vs 2025 극장가 연간 총량 및 회복 추세 비교
@@ -89,3 +90,4 @@
 | 2026-10-20 | 네트워크 타임아웃 대응 스크립트 설계 | 2024-06-18 타임아웃 발생 시 데이터 누락 방지 | 자동 재시도 로직 정상 통과 및 결측치 없음을 데이터프레임으로 확인 |
 | 2026-10-20 | 일별 집계 및 파생변수 생성 (EDA) | 일별 관객수 합산 및 당일 1위 영화/점유율 결합 코드 작성 | 731일 결측 여부 확인, CSV 732행(헤더 포함) 검증 |
 | 2026-10-20 | 시계열 분석 기법 3종 구현 | 7일/30일 이동평균, 전일·전주 변화율, 요일/월별 집계 연산 자동화 | 수요일 반등률(+66.2%), 주말 배율(2.19배) 수치 검증 |
+| 2026-10-20 | 고품질 시각화 3종 생성 | Matplotlib 서브플롯, 화살표 어노테이션, 한글 폰트 렌더링 코드 작성 | 이미지 3개 파일 생성 확인(300 DPI) 및 폰트 깨짐 없음 검증 |
